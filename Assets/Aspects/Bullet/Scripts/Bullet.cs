@@ -20,7 +20,9 @@ public class Bullet : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other) {
         Destroy(gameObject);
+    }
 
+    private void OnDestroy() {
         var particles = Instantiate(_destroyParticles);
         particles.transform.position = transform.position;
     }

@@ -7,6 +7,9 @@ public class RayShooter : MonoBehaviour {
     [SerializeField]
     private GameObject _bulletPrefab;
 
+    [SerializeField]
+    private Camera _secondCamera;
+
     private Camera _camera;
 
     void Start() {
@@ -17,8 +20,8 @@ public class RayShooter : MonoBehaviour {
     }
     private void OnGUI() {
         int size = 100;
-        float posX = _camera.pixelWidth / 2 - size / 4;
-        float posY = _camera.pixelHeight / 2 - size / 2;
+        float posX = _secondCamera.pixelWidth / 2 - size / 4;
+        float posY = _secondCamera.pixelHeight / 2 - size / 2;
         GUI.skin.label.fontSize = 100;
         GUI.Label(new Rect(posX, posY, size, size), "+");
     }
