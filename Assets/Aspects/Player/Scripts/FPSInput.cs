@@ -20,7 +20,12 @@ public class FPSInput : MonoBehaviour
 
         Vector3 movement = new Vector3(deltaX, 0, deltaZ);
         movement = Vector3.ClampMagnitude(movement, _speed);
-        movement.y = _gravity;
+
+        if(Input.GetKey(KeyCode.Space)) {
+            movement.y = -_gravity;
+        } else {
+            movement.y = _gravity;
+        }
 
         movement *= Time.deltaTime;
         movement = transform.TransformDirection(movement);
